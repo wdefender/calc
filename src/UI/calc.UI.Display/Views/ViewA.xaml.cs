@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace calc.Infrastructure.Views
+namespace calc.UI.Display.Views
 {
     /// <summary>
     /// Interaction logic for ViewA.xaml

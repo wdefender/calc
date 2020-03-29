@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace calc.Infrastructure.ViewModels
+namespace calc.UI.Display.ViewModels
 {
     public class ViewAViewModel : BindableBase
     {

@@ -1,11 +1,11 @@
-﻿using calc.Infrastructure.Views;
+﻿using calc.UI.Display.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace calc.Infrastructure
+namespace calc.UI.Display
 {
-    public class InfrastructureModule : IModule
+    public class DisplayModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
