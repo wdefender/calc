@@ -5,6 +5,7 @@ Simple calculator windows application (WPF) that demonstrates how to use MVVM wi
 
 - Well structured solution repository
 - MVVM
+- Styling & Theming
 - Dependency injection
 - Prism
 
