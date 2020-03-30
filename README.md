@@ -14,9 +14,9 @@ Feel free to clone or download the code. Compiled win exe is located inside the 
 
 <img alt="Calc screenshot" width="525" heigth="350" src="https://github.com/wdefender/calc/blob/master/calc.jpg">
 
-## Still Todo:
+## Next steps:
 
-- Enhancements
+- Enhancements (C, CE, MC, MR, MS, M+, BACKSPACE)
 - Logging
 - Styling
 - Error handling
