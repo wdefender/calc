@@ -1,5 +1,5 @@
 # Calc
-Simple calculator windows application that demonstrate how to use MVVM with .Net Core & Prism with WPF.
+Simple calculator windows application (WPF) that demonstrates how to use MVVM with .Net Core & Prism.
 
 ## Topics:
 
