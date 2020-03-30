@@ -1,13 +1,21 @@
 ﻿using calc.Common.Infrastructure.Interfaces;
+using Prism.Mvvm;
 using System;
 
 namespace calc.Common.Services
 {
-    public class OutputService : IOutputService
+    public class OutputService : BindableBase, IOutputService
     {
-        public string SendOutput()
+        private string _displayValue;
+        public string DisplayValue
         {
-            throw new NotImplementedException();
+            get => _displayValue;
+            set => SetProperty(ref _displayValue, value);
+        }
+
+        public void SendOutput(string obj)
+        {
+            DisplayValue = string.Concat(_displayValue, obj);
         }
     }
 }

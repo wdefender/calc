@@ -9,5 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Common\calc.Common.Services\calc.Common.Services.csproj" />
   </ItemGroup>
 </Project>

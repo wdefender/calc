@@ -6,9 +6,16 @@ namespace calc.Common.Services
 {
     public class InputService : IInputService
     {
+        private readonly IOutputService outputService;
+
+        public InputService(IOutputService outputService)
+        {
+            this.outputService = outputService;
+        }
+
         public void RegisterInput(Key key)
         {
-            throw new NotImplementedException();
+            outputService.SendOutput(key.Value);
         }
     }
 }

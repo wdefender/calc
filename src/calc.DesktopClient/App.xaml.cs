@@ -5,6 +5,8 @@ using Prism.Modularity;
 using calc.UI.Keys;
 using calc.UI.Display;
 using calc.UI.Toolbar;
+using calc.Common.Infrastructure.Interfaces;
+using calc.Common.Services;
 
 namespace calc.DesktopClient
 {
@@ -20,7 +22,8 @@ namespace calc.DesktopClient
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterSingleton<IInputService, InputService>();
+            containerRegistry.RegisterSingleton<IOutputService, OutputService>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

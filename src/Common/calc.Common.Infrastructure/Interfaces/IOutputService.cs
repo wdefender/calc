@@ -3,6 +3,6 @@ namespace calc.Common.Infrastructure.Interfaces
 {
     public interface IOutputService
     {
-        string SendOutput();
+        void SendOutput(string obj);
     }
 }

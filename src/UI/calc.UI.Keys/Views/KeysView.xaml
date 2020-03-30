@@ -3,15 +3,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True">
-    <UniformGrid Columns="3">
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-    </UniformGrid>
+    <!--<Grid ></Grid>-->
+
+    <ItemsControl ItemsSource="{Binding Keys}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Columns="3" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button
+                    Margin="4"
+                    Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.RegisterKeyCommand}"
+                    CommandParameter="{Binding}"
+                    Content="{Binding Value}" />
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
 </UserControl>

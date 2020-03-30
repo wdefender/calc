@@ -1,16 +1,15 @@
-﻿using Prism.Commands;
+﻿using calc.Common.Infrastructure.Interfaces;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace calc.UI.Display.ViewModels
 {
     public class DisplayViewModel : BindableBase
     {
-        public DisplayViewModel()
+        public IOutputService OutputService { get; }
+     
+        public DisplayViewModel(IOutputService outputServce)
         {
-
+            OutputService = outputServce;
         }
     }
 }

@@ -9,8 +9,9 @@
             Margin="8"
             HorizontalAlignment="Stretch"
             Foreground="AliceBlue"
-            TextAlignment="Right">
-            000
-        </TextBlock>
+            Text="{Binding OutputService.DisplayValue}"
+            TextAlignment="Right" />
+
+
     </Grid>
 </UserControl>

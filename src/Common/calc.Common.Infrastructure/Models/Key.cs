@@ -7,7 +7,13 @@ namespace calc.Common.Infrastructure.Models
 {
     public class Key
     {
-        public KeyType KeyType { get; set; }
-        public string KeyValue { get; set; }
+        public KeyType Type { get; }
+        public string Value { get; }
+
+        public Key(KeyType type, string value)
+        {
+            Type = type;
+            Value = value;
+        }
     }
 }
