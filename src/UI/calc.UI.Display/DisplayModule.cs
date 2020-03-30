@@ -7,9 +7,16 @@ namespace calc.UI.Display
 {
     public class DisplayModule : IModule
     {
+        private readonly IRegionManager regionManager;
+
+        public DisplayModule(IRegionManager regionManager)
+        {
+            this.regionManager = regionManager;
+        }
+
         public void OnInitialized(IContainerProvider containerProvider)
         {
-
+            regionManager.Regions["DisplayRegion"].Add(containerProvider.Resolve<DisplayView>()); ;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

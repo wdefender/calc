@@ -1,22 +1,22 @@
-﻿using calc.UI.Keys.Views;
+﻿using calc.UI.Toolbar.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace calc.UI.Keys
+namespace calc.UI.Toolbar
 {
-    public class KeysModule : IModule
+    public class ToolbarModule : IModule
     {
         private readonly IRegionManager regionManager;
 
-        public KeysModule(IRegionManager regionManager)
+        public ToolbarModule(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            regionManager.Regions["KeysRegion"].Add(containerProvider.Resolve<KeysView>()); ;
+            regionManager.Regions["ToolbarRegion"].Add(containerProvider.Resolve<ToolbarView>()); ;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
