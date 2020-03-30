@@ -9,6 +9,7 @@
     <PackageReference Include="Prism.Unity" Version="7.2.0.1367" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\UI\calc.UI.Display\calc.UI.Display.csproj" />
     <ProjectReference Include="..\UI\calc.UI.Keys\calc.UI.Keys.csproj" />
     <ProjectReference Include="..\UI\calc.UI.Toolbar\calc.UI.Toolbar.csproj" />

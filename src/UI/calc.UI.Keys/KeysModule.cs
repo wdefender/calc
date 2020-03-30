@@ -1,4 +1,5 @@
-﻿using calc.UI.Keys.Views;
+﻿using calc.Common.Infrastructure.Constants;
+using calc.UI.Keys.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -16,7 +17,7 @@ namespace calc.UI.Keys
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            regionManager.Regions["KeysRegion"].Add(containerProvider.Resolve<KeysView>()); ;
+            regionManager.Regions[RegionNames.KeysRegion].Add(containerProvider.Resolve<KeysView>()); ;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

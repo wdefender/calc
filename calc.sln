@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc.UI.Display", "src\UI\c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc.UI.Toolbar", "src\UI\calc.UI.Toolbar\calc.UI.Toolbar.csproj", "{69D39FF0-2177-47C8-B678-CF903E77E28A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc.Common.Infrastructure", "src\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj", "{6EBFA995-36D0-4533-9357-6671F5810D52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{69D39FF0-2177-47C8-B678-CF903E77E28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D39FF0-2177-47C8-B678-CF903E77E28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D39FF0-2177-47C8-B678-CF903E77E28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBFA995-36D0-4533-9357-6671F5810D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBFA995-36D0-4533-9357-6671F5810D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBFA995-36D0-4533-9357-6671F5810D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBFA995-36D0-4533-9357-6671F5810D52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{E801162B-DA6C-4A71-8B4F-5742C4DDDEAA} = {5E1CCE90-72D8-4932-9735-A20B7704F553}
 		{66990553-2851-4D64-9748-BFDDBC1A9135} = {5E1CCE90-72D8-4932-9735-A20B7704F553}
 		{69D39FF0-2177-47C8-B678-CF903E77E28A} = {5E1CCE90-72D8-4932-9735-A20B7704F553}
+		{6EBFA995-36D0-4533-9357-6671F5810D52} = {77F8BFFE-8AB4-4164-8F7B-B9FE851A8991}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58445C04-8D4C-4C45-993B-83E09B676A67}

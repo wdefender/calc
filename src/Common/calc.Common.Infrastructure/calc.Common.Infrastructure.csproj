@@ -2,12 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>calc.UI.Keys</AssemblyName>
+    <AssemblyName>calc.Common.Infrastructure</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using calc.UI.Toolbar.Views;
+﻿using calc.Common.Infrastructure.Constants;
+using calc.UI.Toolbar.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -16,7 +17,7 @@ namespace calc.UI.Toolbar
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            regionManager.Regions["ToolbarRegion"].Add(containerProvider.Resolve<ToolbarView>()); ;
+            regionManager.Regions[RegionNames.ToolbarRegion].Add(containerProvider.Resolve<ToolbarView>()); ;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

@@ -7,4 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>

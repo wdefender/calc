@@ -1,4 +1,5 @@
-﻿using calc.UI.Display.Views;
+﻿using calc.Common.Infrastructure.Constants;
+using calc.UI.Display.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -16,7 +17,7 @@ namespace calc.UI.Display
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            regionManager.Regions["DisplayRegion"].Add(containerProvider.Resolve<DisplayView>()); ;
+            regionManager.Regions[RegionNames.DisplayRegion].Add(containerProvider.Resolve<DisplayView>()); ;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
