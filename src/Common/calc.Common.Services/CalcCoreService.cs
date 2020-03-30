@@ -66,26 +66,15 @@ namespace calc.Common.Services
         }
 
         static string[] operators = { "+", "-", "*", "/" };
-        static Func<decimal, decimal, decimal>[] calcOps = { Add, Sub, Mul, Div };
 
-        static decimal Add(decimal x, decimal y)
-        {
-            return (x + y);
-        }
-
-        static decimal Sub(decimal x, decimal y)
-        {
-            return (x - y); 
-        }
-
-        static decimal Mul(decimal x, decimal y)
-        {
-            return (x * y);
-        }
-
-        static decimal Div(decimal x, decimal y)
-        {
-            return (x / y);
-        }
+        // take care - it is an array of func
+        // lambdas must be in the same order as operators array 
+        static Func<decimal, decimal, decimal>[] calcOps = 
+        { 
+            (x,y) => (x + y),
+            (x,y) => (x - y),
+            (x,y) => (x * y),
+            (x,y) => (x / y)
+        };
     }
 }

@@ -3,7 +3,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True">
+
     <ToolBar>
-        <Button>Close</Button>
+        <Button
+            Width="30"
+            ToolTip="Clear (alles löschen) ">
+            C
+        </Button>
+        <Button
+            Width="30"
+            ToolTip=" Clear Entry (nur letzte Eingabe löschen)">
+            CE
+        </Button>
+        <Button
+            Width="30"
+            ToolTip="Memory Clear (Speicher löschen)">
+            MC
+        </Button>
+        <Button
+            Width="30"
+            ToolTip="Memory Recall (gespeicherten Wert abrufen) ">
+            MR
+        </Button>
+        <Button
+            Width="30"
+            ToolTip="Memory Addition">
+            M+
+        </Button>
+        <Button
+            Width="30"
+            ToolTip="Memory Subtraktion">
+            M-
+        </Button>
+        <Button Width="80">BACKSPACE</Button>
     </ToolBar>
 </UserControl>
+<!--  C, CE, MC, MR, MS, M+, BACKSPACE  -->
