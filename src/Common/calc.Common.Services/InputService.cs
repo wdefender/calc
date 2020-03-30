@@ -1,21 +1,29 @@
-﻿using calc.Common.Infrastructure.Interfaces;
+﻿using calc.Common.Infrastructure.Enums;
+using calc.Common.Infrastructure.Interfaces;
 using calc.Common.Infrastructure.Models;
-using System;
 
 namespace calc.Common.Services
 {
     public class InputService : IInputService
     {
-        private readonly IOutputService outputService;
+        private readonly ICalcCoreService calcCoreService;
 
-        public InputService(IOutputService outputService)
+        public InputService(ICalcCoreService calcCoreService)
         {
-            this.outputService = outputService;
+            this.calcCoreService = calcCoreService;
         }
 
         public void RegisterInput(Key key)
         {
-            outputService.SendOutput(key.Value);
+            switch (key.Type)
+            {
+                case KeyType.OperatorKey:
+                    calcCoreService.AddInput(key);
+                    break;
+                default:
+                    calcCoreService.AddInput(key);
+                    break;
+            }
         }
     }
 }

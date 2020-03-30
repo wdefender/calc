@@ -24,6 +24,7 @@ namespace calc.DesktopClient
         {
             containerRegistry.RegisterSingleton<IInputService, InputService>();
             containerRegistry.RegisterSingleton<IOutputService, OutputService>();
+            containerRegistry.RegisterSingleton<ICalcCoreService, CalcCoreService>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

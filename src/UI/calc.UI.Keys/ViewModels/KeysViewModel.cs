@@ -33,18 +33,28 @@ namespace calc.UI.Keys.ViewModels
         {
             Keys = new ObservableCollection<Key>();
 
-            Keys.Add(new Key(KeyType.NumericKey, "1"));
-            Keys.Add(new Key(KeyType.NumericKey, "2"));
-            Keys.Add(new Key(KeyType.NumericKey, "3"));
-            Keys.Add(new Key(KeyType.NumericKey, "4"));
-            Keys.Add(new Key(KeyType.NumericKey, "5"));
-            Keys.Add(new Key(KeyType.NumericKey, "6"));
             Keys.Add(new Key(KeyType.NumericKey, "7"));
             Keys.Add(new Key(KeyType.NumericKey, "8"));
             Keys.Add(new Key(KeyType.NumericKey, "9"));
-            Keys.Add(new Key(KeyType.NumericKey, "+-"));
+            Keys.Add(new Key(KeyType.OperatorKey, "/"));
+            Keys.Add(new Key(KeyType.OperatorKey, "sqrt"));
+            Keys.Add(new Key(KeyType.NumericKey, "4"));
+            Keys.Add(new Key(KeyType.NumericKey, "5"));
+            Keys.Add(new Key(KeyType.NumericKey, "6"));
+            Keys.Add(new Key(KeyType.OperatorKey, "*"));
+            Keys.Add(new Key(KeyType.OperatorKey, "%"));
+            Keys.Add(new Key(KeyType.NumericKey, "1"));
+            Keys.Add(new Key(KeyType.NumericKey, "2"));
+            Keys.Add(new Key(KeyType.NumericKey, "3"));
+            Keys.Add(new Key(KeyType.OperatorKey, "-"));
+            Keys.Add(new Key(KeyType.OperatorKey, "1/x"));
             Keys.Add(new Key(KeyType.NumericKey, "0"));
-            Keys.Add(new Key(KeyType.NumericKey, "."));
+            Keys.Add(new Key(KeyType.OperatorKey, "+/-"));
+            Keys.Add(new Key(KeyType.NumericKey, ","));
+            Keys.Add(new Key(KeyType.OperatorKey, "+"));
+            Keys.Add(new Key(KeyType.OperatorKey, "="));
+
+
 
         }
     }

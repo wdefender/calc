@@ -1,6 +1,5 @@
 ﻿using calc.Common.Infrastructure.Interfaces;
 using Prism.Mvvm;
-using System;
 
 namespace calc.Common.Services
 {
@@ -15,7 +14,7 @@ namespace calc.Common.Services
 
         public void SendOutput(string obj)
         {
-            DisplayValue = string.Concat(_displayValue, obj);
+            DisplayValue = string.IsNullOrEmpty(obj) ? "" : obj;
         }
     }
 }
