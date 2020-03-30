@@ -1,10 +1,17 @@
 ﻿<UserControl x:Class="calc.UI.Toolbar.Views.ToolbarView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gui2="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True">
-
-    <ToolBar>
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource ButtonStyle}" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="2,0" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel
+        HorizontalAlignment="Right"
+        Orientation="Horizontal">
         <Button
             Width="30"
             ToolTip="Clear (alles löschen) ">
@@ -36,6 +43,6 @@
             M-
         </Button>
         <Button Width="80">BACKSPACE</Button>
-    </ToolBar>
+    </StackPanel>
 </UserControl>
 <!--  C, CE, MC, MR, MS, M+, BACKSPACE  -->
