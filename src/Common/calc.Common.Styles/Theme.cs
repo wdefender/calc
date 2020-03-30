@@ -19,11 +19,11 @@ namespace calc.Common.Styles
                 }
 
                 resourceDictionary = new ResourceDictionary();
-                LoadThemeType(ThemeType.Light);
+                LoadThemeType(ThemeType.Dark);
                 return resourceDictionary;
             }
         }
-        public static ThemeType ThemeType { get; set; } = ThemeType.Light;
+        public static ThemeType ThemeType { get; set; } = ThemeType.Dark;
 
         public static void LoadThemeType(ThemeType type)
         {
