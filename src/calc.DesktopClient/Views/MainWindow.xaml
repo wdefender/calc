@@ -6,10 +6,10 @@
     xmlns:gui2="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     xmlns:prism="http://prismlibrary.com/"
     Title="{Binding Title}"
-    Width="525"
-    Height="350"
+    Width="325"
+    Height="280"
     MinWidth="325"
-    MinHeight="250"
+    MinHeight="280"
     MaxWidth="525"
     MaxHeight="350"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -22,6 +22,7 @@
         </Grid.RowDefinitions>
         <ContentControl
             Margin="8"
+            HorizontalAlignment="Center"
             prism:RegionManager.RegionName="{x:Static constants:RegionNames.ToolbarRegion}" />
         <ContentControl
             Grid.Row="1"

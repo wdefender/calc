@@ -9,6 +9,7 @@
         <TextBlock
             Margin="8"
             HorizontalAlignment="Stretch"
+            FontWeight="DemiBold"
             Foreground="AliceBlue"
             Text="{Binding OutputService.DisplayValue}"
             TextAlignment="Right" />
