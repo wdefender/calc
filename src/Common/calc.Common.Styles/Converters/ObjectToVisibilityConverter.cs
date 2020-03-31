@@ -9,8 +9,6 @@ namespace calc.Common.Styles.Converters
     {
         private static ObjectToVisibilityConverter converter;
 
-
-
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return converter ?? (converter = new ObjectToVisibilityConverter());

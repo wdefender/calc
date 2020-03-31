@@ -3,6 +3,7 @@
     xmlns:gui="clr-namespace:calc.Common.Styles">
     <ResourceDictionary.MergedDictionaries>
         <gui:ThemeResourceDictionary />
+        <ResourceDictionary Source="Fonts.xaml" />
         <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
         <ResourceDictionary Source="Styles/CheckBoxStyles.xaml" />
         <ResourceDictionary Source="Styles/ComboBoxStyles.xaml" />

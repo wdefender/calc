@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="calc.UI.Keys.Views.KeysView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:calc.UI.Keys.Converters"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <!--<Grid ></Grid>-->
@@ -17,7 +18,8 @@
                     Margin="4"
                     Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.RegisterKeyCommand}"
                     CommandParameter="{Binding}"
-                    Content="{Binding Value}" />
+                    Content="{Binding Value}"
+                    Style="{Binding Type, Converter={converters:KeyTypeToStyleConverter}}" />
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

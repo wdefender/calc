@@ -1,17 +1,16 @@
 ﻿<UserControl x:Class="calc.UI.Display.Views.DisplayView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gui2="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     xmlns:prism="http://prismlibrary.com/"
-    prism:ViewModelLocator.AutoWireViewModel="True"
-    Background="Black">
-    <Grid>
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Grid Background="Black">
         <TextBlock
             Margin="8"
             HorizontalAlignment="Stretch"
             Foreground="AliceBlue"
             Text="{Binding OutputService.DisplayValue}"
             TextAlignment="Right" />
-
-
     </Grid>
 </UserControl>

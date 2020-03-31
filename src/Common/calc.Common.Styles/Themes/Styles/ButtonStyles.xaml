@@ -4,6 +4,8 @@
     xmlns:ap="clr-namespace:calc.Common.Styles.AttachedProperties"
     xmlns:theme="clr-namespace:calc.Common.Styles">
 
+    <FontFamily x:Key="RobotoFontFamily">pack://application:,,,/calc.Common.Styles;component/Resources/Roboto/#Roboto</FontFamily>
+
     <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
         <Grid SnapsToDevicePixels="true">
             <Border x:Name="border"
@@ -46,11 +48,50 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <Style x:Key="OperatorButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=OperatorKeyControlBackground}" />
+        <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ControlBorder}" />
+        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ControlForeground}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="RobotoFontFamily" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="ap:ButtonProperties.CornerRadius" Value="0" />
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}" />
+    </Style>
+
+    <Style x:Key="ToolbarButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=OperatorKeyControlBackground}" />
+        <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ControlBorder}" />
+        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ControlForeground}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="RobotoFontFamily" />
+        <Setter Property="FontWeight" Value="Thin" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="ap:ButtonProperties.CornerRadius" Value="0" />
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}" />
+    </Style>
+
     <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=ControlBackground}" />
         <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ControlBorder}" />
         <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ControlForeground}" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontFamily" Value="RobotoFontFamily" />
+        <Setter Property="FontWeight" Value="Thin" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

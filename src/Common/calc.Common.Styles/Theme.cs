@@ -51,7 +51,11 @@ namespace calc.Common.Styles
                         SetResource(ThemeResourceKey.ContentBackground.ToString(), new SolidColorBrush(ColorFromHex("#FFFFFFFF")));
                         SetResource(ThemeResourceKey.ContentForeground.ToString(), new SolidColorBrush(ColorFromHex("#FF3F3F3F")));
                         SetResource(ThemeResourceKey.ControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#FF3F3F3F")));
+                        SetResource(ThemeResourceKey.NumericKeyControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#FF3F3F3F")));
+                        SetResource(ThemeResourceKey.OperatorKeyControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#443F3F3F")));
                         SetResource(ThemeResourceKey.ControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#FFDBE0E4")));
+                        SetResource(ThemeResourceKey.NumericKeyControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#FFDBE0E4")));
+                        SetResource(ThemeResourceKey.OperatorKeyControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#44DBE0E4")));
                         SetResource(ThemeResourceKey.ControlBorder.ToString(), new SolidColorBrush(ColorFromHex("#FF8192A1")));
                         SetResource(ThemeResourceKey.ControlContentBackground.ToString(), new SolidColorBrush(ColorFromHex("#FFFFFFFF")));
                         SetResource(ThemeResourceKey.ControlHighlightBackground.ToString(), new SolidColorBrush(ColorFromHex("#77833AB4")));
@@ -68,7 +72,11 @@ namespace calc.Common.Styles
                         SetResource(ThemeResourceKey.ContentBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF222529")));
                         SetResource(ThemeResourceKey.ContentForeground.ToString(), new SolidColorBrush(ColorFromHex("#FFF4F6F9")));
                         SetResource(ThemeResourceKey.ControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#FFF4F6F9")));
+                        SetResource(ThemeResourceKey.NumericKeyControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#FFF4F6F9")));
+                        SetResource(ThemeResourceKey.OperatorKeyControlForeground.ToString(), new SolidColorBrush(ColorFromHex("#44F4F6F9")));
                         SetResource(ThemeResourceKey.ControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF2D3136")));
+                        SetResource(ThemeResourceKey.NumericKeyControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF2D3136")));
+                        SetResource(ThemeResourceKey.OperatorKeyControlBackground.ToString(), new SolidColorBrush(ColorFromHex("#442D3136")));
                         SetResource(ThemeResourceKey.ControlBorder.ToString(), new SolidColorBrush(ColorFromHex("#FF616D7B")));
                         SetResource(ThemeResourceKey.ControlContentBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF1C1E22")));
                         SetResource(ThemeResourceKey.ControlHighlightBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF833AB4")));

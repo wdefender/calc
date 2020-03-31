@@ -5,7 +5,7 @@
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
-        <Style BasedOn="{StaticResource ButtonStyle}" TargetType="{x:Type Button}">
+        <Style BasedOn="{StaticResource ToolbarButtonStyle}" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="2,0" />
         </Style>
     </UserControl.Resources>
