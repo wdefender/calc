@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace calc.DesktopClient.Views
 {
@@ -10,6 +11,8 @@ namespace calc.DesktopClient.Views
         public MainWindow()
         {
             InitializeComponent();
+            //this.InputBindings.Add(new KeyBinding(() => Messagbox.Show(""),
+            // new KeyGesture(Key.O, ModifierKeys.Control)));
         }
     }
 }

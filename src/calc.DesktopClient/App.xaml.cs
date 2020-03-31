@@ -22,6 +22,7 @@ namespace calc.DesktopClient
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IKeyService, KeyService>();
             containerRegistry.RegisterSingleton<IInputService, InputService>();
             containerRegistry.RegisterSingleton<IOutputService, OutputService>();
             containerRegistry.RegisterSingleton<ICalcCoreService, CalcCoreService>();

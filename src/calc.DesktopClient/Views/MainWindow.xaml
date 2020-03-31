@@ -2,7 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:constants="clr-namespace:calc.Common.Infrastructure.Constants;assembly=calc.Common.Infrastructure"
-    xmlns:gui="clr-namespace:calc.Common.Styles.Converters;assembly=calc.Common.Styles"
     xmlns:gui2="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     xmlns:prism="http://prismlibrary.com/"
     Title="{Binding Title}"
@@ -14,6 +13,7 @@
     MaxHeight="350"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Style="{DynamicResource MainWindowStyle}">
+
     <Grid Background="{gui2:ThemeResource ResourceKey=ContentBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -33,4 +33,106 @@
             Margin="8"
             prism:RegionManager.RegionName="{x:Static constants:RegionNames.KeysRegion}" />
     </Grid>
+    <Window.InputBindings>
+        <KeyBinding
+            Key="D0"
+            Command="{Binding KeyCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="NumPad0"
+            Command="{Binding KeyCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="D1"
+            Command="{Binding KeyCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="NumPad1"
+            Command="{Binding KeyCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="D2"
+            Command="{Binding KeyCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="NumPad2"
+            Command="{Binding KeyCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="D3"
+            Command="{Binding KeyCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="NumPad3"
+            Command="{Binding KeyCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="D4"
+            Command="{Binding KeyCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="NumPad4"
+            Command="{Binding KeyCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="D5"
+            Command="{Binding KeyCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="NumPad5"
+            Command="{Binding KeyCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="D6"
+            Command="{Binding KeyCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="NumPad6"
+            Command="{Binding KeyCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="D7"
+            Command="{Binding KeyCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="NumPad7"
+            Command="{Binding KeyCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="D8"
+            Command="{Binding KeyCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="NumPad8"
+            Command="{Binding KeyCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="D9"
+            Command="{Binding KeyCommand}"
+            CommandParameter="9" />
+        <KeyBinding
+            Key="NumPad9"
+            Command="{Binding KeyCommand}"
+            CommandParameter="9" />
+        <KeyBinding
+            Key="Add"
+            Command="{Binding KeyCommand}"
+            CommandParameter="+" />
+        <KeyBinding
+            Key="Subtract"
+            Command="{Binding KeyCommand}"
+            CommandParameter="-" />
+        <KeyBinding
+            Key="Multiply"
+            Command="{Binding KeyCommand}"
+            CommandParameter="*" />
+        <KeyBinding
+            Key="Divide"
+            Command="{Binding KeyCommand}"
+            CommandParameter="/" />
+        <KeyBinding
+            Key="Return"
+            Command="{Binding KeyCommand}"
+            CommandParameter="=" />
+    </Window.InputBindings>
 </Window>
