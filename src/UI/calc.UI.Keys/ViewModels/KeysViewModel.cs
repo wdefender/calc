@@ -3,8 +3,6 @@ using calc.Common.Infrastructure.Interfaces;
 using calc.Common.Infrastructure.Models;
 using Prism.Commands;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace calc.UI.Keys.ViewModels
@@ -13,26 +11,18 @@ namespace calc.UI.Keys.ViewModels
     {
         private readonly IInputService inputService;
         
-        public ObservableCollection<Key> Keys { get; set; } 
+        public ObservableCollection<Key> Keys { get; } = new ObservableCollection<Key>();
 
-        public DelegateCommand<Key> RegisterKeyCommand { get; set; }
-
+        public DelegateCommand<Key> RegisterKeyCommand => new DelegateCommand<Key>(_ => inputService.RegisterInput(_));
+        
         public KeysViewModel(IInputService inputService)
         {
             this.inputService = inputService;
-            RegisterKeyCommand = new DelegateCommand<Key>(RaiseRegisterKeyCommand);
             InitKeys();
-        }
-
-        private void RaiseRegisterKeyCommand(Key key)
-        {
-            inputService.RegisterInput(key);
         }
 
         private void InitKeys()
         {
-            Keys = new ObservableCollection<Key>();
-
             Keys.Add(new Key(KeyType.NumericKey, "7"));
             Keys.Add(new Key(KeyType.NumericKey, "8"));
             Keys.Add(new Key(KeyType.NumericKey, "9"));
@@ -53,9 +43,6 @@ namespace calc.UI.Keys.ViewModels
             Keys.Add(new Key(KeyType.NumericKey, ","));
             Keys.Add(new Key(KeyType.OperatorKey, "+"));
             Keys.Add(new Key(KeyType.OperatorKey, "="));
-
-
-
         }
     }
 }
