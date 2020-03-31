@@ -13,7 +13,8 @@ Simple calculator windows application (WPF) that demonstrates how to use MVVM wi
 Early alpha version. Some operations are not implemented yet, but it should compile and run without problems.
 Feel free to clone or download the code. Zip-packed win64 exe is located inside the <a href="https://github.com/wdefender/calc/tree/master/build">build</a> folder. 
 
-<img alt="Calc screenshot" width="525" heigth="350" src="https://github.com/wdefender/calc/blob/master/calc.jpg">
+<img alt="Calc screenshot" width="525" heigth="350" src="https://github.com/wdefender/calc/blob/master/calc_dark.jpg">
+<img alt="Calc screenshot" width="525" heigth="350" src="https://github.com/wdefender/calc/blob/master/calc_light.jpg">
 
 ## Next steps:
 
