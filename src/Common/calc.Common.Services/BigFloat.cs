@@ -324,7 +324,8 @@ namespace calc.Common.Services
                 zeros = zeros + "0";
                 denominatorString = denominatorString.Remove(denominatorString.Length - 1, 1);
             }
-            zeros = zeros.Remove(zeros.Length - 1, 1);
+            
+            zeros = zeros.Length > 0 ? zeros.Remove(zeros.Length - 1, 1) : zeros;
 
             if (trailingZeros)
                 return result + "." + new string(sb.ToString().Reverse().ToArray());

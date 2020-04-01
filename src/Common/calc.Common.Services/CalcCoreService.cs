@@ -38,7 +38,7 @@ namespace calc.Common.Services
 
                     if (key.Value== "+/-")
                     {
-                        if (x_register == "0") return;
+                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
                         
                         x_register = x_register[0].ToString() == "-".ToString() ? x_register.Remove(0, 1) : string.Concat("-", x_register);
                         outputService.SendOutput(x_register);
@@ -47,15 +47,27 @@ namespace calc.Common.Services
 
                     if (key.Value == "sqrt")
                     {
+                        if (string.IsNullOrEmpty(x_register)) return;
                         x_register = BigFloat.Parse(x_register).Sqrt().ToString();
+                        flag_register = "=";
                         outputService.SendOutput(x_register);
                         return;
                     }
 
                     if (key.Value == "1/x")
                     {
-
+                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
                         x_register =  (new BigFloat(1) / BigFloat.Parse(x_register)).ToString();
+                        flag_register = "=";
+                        outputService.SendOutput(x_register);
+                        return;
+                    }
+
+                    if (key.Value == "%")
+                    {
+                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
+                        x_register = (BigFloat.Parse(x_register) / new BigFloat(100)).ToString();
+                        flag_register = "=";
                         outputService.SendOutput(x_register);
                         return;
                     }
