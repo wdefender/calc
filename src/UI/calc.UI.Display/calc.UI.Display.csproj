@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\calc.Common.Infrastructure\calc.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Common\calc.Common.Services\calc.Common.Services.csproj" />
+    <ProjectReference Include="..\..\Common\calc.Common.Styles.Fonts\calc.Common.Styles.Fonts.csproj" />
     <ProjectReference Include="..\..\Common\calc.Common.Styles\calc.Common.Styles.csproj" />
   </ItemGroup>
 </Project>

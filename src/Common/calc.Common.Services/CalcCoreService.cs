@@ -2,48 +2,64 @@
 using calc.Common.Infrastructure.Interfaces;
 using calc.Common.Infrastructure.Models;
 using System;
-using System.Linq;
+using System.Numerics;
 
 namespace calc.Common.Services
 {
     public class CalcCoreService : ICalcCoreService
     {
-        private string _firstOperand;
-        private string _secondOperand;
-        private string _operator;
+        private string x_register;
+        private string y_register;
+        private string flag_Register;
 
         private readonly IOutputService outputService;
 
         public CalcCoreService(IOutputService outputService)
         {
             this.outputService = outputService;
+            outputService.SendOutput("0");
         }
 
         public void AddInput(Key key)
         {
+
             switch (key.Type)
             {
                 case KeyType.OperatorKey:
 
                     if (key.Value=="=")
                     {
-                        outputService.SendOutput(Calculate());
+                        x_register = Calculate();
+                        y_register = string.Empty;
+                        flag_Register = "=";
+                        outputService.SendOutput(x_register);
                         return;
                     }
-                    _operator = key.Value;
+
+                    flag_Register = key.Value;
                     outputService.SendOutput("");
-                    outputService.SendOutput(_operator);
+                    outputService.SendOutput(flag_Register);
+
                     break;
                 default:
-                    if (string.IsNullOrEmpty(_operator))
+                    if (string.IsNullOrEmpty(flag_Register))
                     {
-                        _firstOperand = string.Concat(_firstOperand, key.Value);
-                        outputService.SendOutput(_firstOperand);
+                        x_register = string.Concat(x_register, key.Value);
+                        outputService.SendOutput(x_register);
                     }
                     else
                     {
-                        _secondOperand = string.Concat(_secondOperand, key.Value);
-                        outputService.SendOutput(_secondOperand.ToString());
+                        if (string.IsNullOrEmpty(y_register) || (flag_Register == "="))
+                        {
+                            y_register = x_register;
+                            x_register = key.Value;
+                            outputService.SendOutput(x_register);
+                        }
+                        else
+                        {
+                            x_register = string.Concat(x_register, key.Value);
+                            outputService.SendOutput(x_register);
+                        }
                     }
                     break;
             }
@@ -51,18 +67,14 @@ namespace calc.Common.Services
 
         private string Calculate()
         {
-            if(operators.Contains(_operator))
-            {
-                int index = Array.IndexOf(operators, _operator);
-                decimal _result = calcOps[index](Convert.ToDecimal(_firstOperand), Convert.ToDecimal(_secondOperand));
-            
-                _firstOperand = string.Empty;
-                _secondOperand = string.Empty;
-                _operator = string.Empty;
-                return _result.ToString();
-            }
 
-            return "Error";
+                int index = Array.IndexOf(operators, flag_Register);
+                //BigInteger _result = bigCalcOps[index](BigInteger.Parse(_firstOperand), BigInteger.Parse(_secondOperand));
+
+                BigFloat _resultBF = bigFloatOps[index](BigFloat.Parse(x_register), BigFloat.Parse(y_register));
+                
+                return _resultBF.ToString();
+
         }
 
         static string[] operators = { "+", "-", "*", "/" };
@@ -75,6 +87,22 @@ namespace calc.Common.Services
             (x,y) => (x - y),
             (x,y) => (x * y),
             (x,y) => (x / y)
+        };
+
+        static Func<BigInteger, BigInteger, BigInteger>[] bigCalcOps =
+        {
+            (x,y) => (x + y),
+            (x,y) => (x - y),
+            (x,y) => (x * y),
+            (x,y) => (x / y)
+        };
+
+        static Func<BigFloat, BigFloat, BigFloat>[] bigFloatOps =
+        {
+            (x,y) => (y + x),
+            (x,y) => (y - x),
+            (x,y) => (y * x),
+            (x,y) => (y / x)
         };
     }
 }

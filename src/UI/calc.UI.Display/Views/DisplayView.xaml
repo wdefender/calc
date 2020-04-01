@@ -1,17 +1,31 @@
 ﻿<UserControl x:Class="calc.UI.Display.Views.DisplayView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:gui2="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:theme="clr-namespace:calc.Common.Styles;assembly=calc.Common.Styles"
     prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <FontFamily x:Key="DisplayFontFamily">pack://application:,,,/calc.Common.Styles.Fonts;component/#White Rabbit</FontFamily>
+    </UserControl.Resources>
 
-    <Grid Background="Black">
-        <TextBlock
-            Margin="8"
-            HorizontalAlignment="Stretch"
-            FontWeight="DemiBold"
-            Foreground="AliceBlue"
-            Text="{Binding OutputService.DisplayValue}"
-            TextAlignment="Right" />
-    </Grid>
+    <Border
+        BorderBrush="{theme:ThemeResource ResourceKey=ControlBorder}"
+        BorderThickness="1">
+        <Grid Background="{theme:ThemeResource ResourceKey=ControlBackground}">
+            <ComboBox
+                Name="cmbFonts"
+                HorizontalAlignment="Left"
+                ItemsSource="{Binding Fonts}"
+                Visibility="Collapsed" />
+            <TextBlock
+                Margin="8"
+                HorizontalAlignment="Right"
+                Background="{theme:ThemeResource ResourceKey=ControlBackground}"
+                FontFamily="{StaticResource DisplayFontFamily}"
+                FontSize="26"
+                Foreground="{theme:ThemeResource ResourceKey=ControlForeground}"
+                Text="{Binding OutputService.DisplayValue}"
+                TextAlignment="Right" />
+        </Grid>
+    </Border>
 </UserControl>

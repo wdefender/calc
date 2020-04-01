@@ -9,7 +9,7 @@
     Height="280"
     MinWidth="325"
     MinHeight="280"
-    MaxWidth="525"
+    MaxWidth="800"
     MaxHeight="350"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Style="{DynamicResource MainWindowStyle}">
