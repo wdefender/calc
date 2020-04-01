@@ -44,6 +44,21 @@ namespace calc.Common.Services
                         return;
                     }
 
+                    if (key.Value == "sqrt")
+                    {
+                        x_register = BigFloat.Parse(x_register).Sqrt().ToString();
+                        outputService.SendOutput(x_register);
+                        return;
+                    }
+
+                    if (key.Value == "1/x")
+                    {
+
+                        x_register =  (new BigFloat(1) / BigFloat.Parse(x_register)).ToString();
+                        outputService.SendOutput(x_register);
+                        return;
+                    }
+
                     flag_register = key.Value;
                     outputService.SendOutput("");
                     outputService.SendOutput(flag_register);
@@ -101,10 +116,10 @@ namespace calc.Common.Services
         // lambdas must be in the same order as operators array 
         static Func<BigFloat, BigFloat, BigFloat>[] ALU_Ops =
         {
-            (x,y) => (y + x),
-            (x,y) => (y - x),
-            (x,y) => (y * x),
-            (x,y) => (y / x)
+            (x,y) => y + x,
+            (x,y) => y - x,
+            (x,y) => y * x,
+            (x,y) => y / x,
         };
     }
 }

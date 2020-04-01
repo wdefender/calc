@@ -51,7 +51,8 @@ namespace calc.Common.Services
             this.numerator = numerator;
             if (denominator == 0)
                 throw new ArgumentException("denominator equals 0");
-            this.denominator = BigInteger.Abs(denominator);
+
+            this.denominator = denominator < 0 ? BigInteger.Abs(denominator) : denominator;
         }
         public BigFloat(BigInteger value)
         {
@@ -67,7 +68,6 @@ namespace calc.Common.Services
             }
             else
             {
-
                 this.numerator = value.numerator;
                 this.denominator = value.denominator;
             }
@@ -316,13 +316,22 @@ namespace calc.Common.Services
                 decimals /= 10;
             }
 
+
+            string zeros = denominator.ToString();
+            string insertme = string.Empty;
+            while (zeros.EndsWith("0"))
+            {
+                insertme = insertme + "0";
+                zeros = zeros.Remove(zeros.Length - 1, 1);
+            }
+            insertme = insertme.Remove(insertme.Length - 1, 1);
+
             if (trailingZeros)
                 return result + "." + new string(sb.ToString().Reverse().ToArray());
             else
-                return result + "." + new string(sb.ToString().Reverse().ToArray()).TrimEnd(new char[] { '0' });
-
-
+                return result + "." + insertme + new string(sb.ToString().Reverse().ToArray()).TrimEnd(new char[] { '0' });
         }
+
         public string ToMixString()
         {
             Factor();
@@ -576,7 +585,8 @@ namespace calc.Common.Services
         }
         public static BigFloat operator /(BigFloat left, BigFloat right)
         {
-            return (new BigFloat(left)).Divide(right);
+            //var tmp = left.Divide(right);
+            return  (new BigFloat(left)).Divide(right);
         }
         public static BigFloat operator >>(BigFloat value, int shift)
         {
