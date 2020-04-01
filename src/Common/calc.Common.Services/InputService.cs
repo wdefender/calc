@@ -15,15 +15,7 @@ namespace calc.Common.Services
 
         public void RegisterInput(Key key)
         {
-            switch (key.Type)
-            {
-                case KeyType.OperatorKey:
-                    calcCoreService.AddInput(key);
-                    break;
-                default:
-                    calcCoreService.AddInput(key);
-                    break;
-            }
+            calcCoreService.AddInput(key);
         }
     }
 }

@@ -2,7 +2,6 @@
 using calc.Common.Infrastructure.Interfaces;
 using calc.Common.Infrastructure.Models;
 using System;
-using System.Numerics;
 
 namespace calc.Common.Services
 {
@@ -10,7 +9,7 @@ namespace calc.Common.Services
     {
         private string x_register;
         private string y_register;
-        private string flag_Register;
+        private string flag_register;
 
         private readonly IOutputService outputService;
 
@@ -31,25 +30,49 @@ namespace calc.Common.Services
                     {
                         x_register = Calculate();
                         y_register = string.Empty;
-                        flag_Register = "=";
+                        flag_register = "=";
                         outputService.SendOutput(x_register);
                         return;
                     }
 
-                    flag_Register = key.Value;
+                    if (key.Value== "+/-")
+                    {
+                        if (x_register == "0") return;
+                        
+                        x_register = x_register[0].ToString() == "-".ToString() ? x_register.Remove(0, 1) : string.Concat("-", x_register);
+                        outputService.SendOutput(x_register);
+                        return;
+                    }
+
+                    flag_register = key.Value;
                     outputService.SendOutput("");
-                    outputService.SendOutput(flag_Register);
+                    outputService.SendOutput(flag_register);
 
                     break;
+                case KeyType.MemoryKey:
+                    if (key.Value=="C")
+                    {
+                        x_register = string.Empty;
+                        y_register = string.Empty;
+                        flag_register = string.Empty;
+                        outputService.SendOutput("0");
+                    }
+                    break;
                 default:
-                    if (string.IsNullOrEmpty(flag_Register))
+                    if (string.IsNullOrEmpty(flag_register))
                     {
                         x_register = string.Concat(x_register, key.Value);
                         outputService.SendOutput(x_register);
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(y_register) || (flag_Register == "="))
+                        if (flag_register == "=")
+                        {
+                            y_register = x_register;
+                            flag_register = string.Empty;
+                            outputService.SendOutput(x_register);
+                        }
+                        else if (string.IsNullOrEmpty(y_register))
                         {
                             y_register = x_register;
                             x_register = key.Value;
@@ -67,37 +90,16 @@ namespace calc.Common.Services
 
         private string Calculate()
         {
-
-                int index = Array.IndexOf(operators, flag_Register);
-                //BigInteger _result = bigCalcOps[index](BigInteger.Parse(_firstOperand), BigInteger.Parse(_secondOperand));
-
-                BigFloat _resultBF = bigFloatOps[index](BigFloat.Parse(x_register), BigFloat.Parse(y_register));
-                
-                return _resultBF.ToString();
-
+            int index = Array.IndexOf(operators, flag_register);
+            BigFloat _resultBF = ALU_Ops[index](BigFloat.Parse(x_register), BigFloat.Parse(y_register));
+            return _resultBF.ToString();
         }
 
         static string[] operators = { "+", "-", "*", "/" };
 
         // take care - it is an array of func
         // lambdas must be in the same order as operators array 
-        static Func<decimal, decimal, decimal>[] calcOps = 
-        { 
-            (x,y) => (x + y),
-            (x,y) => (x - y),
-            (x,y) => (x * y),
-            (x,y) => (x / y)
-        };
-
-        static Func<BigInteger, BigInteger, BigInteger>[] bigCalcOps =
-        {
-            (x,y) => (x + y),
-            (x,y) => (x - y),
-            (x,y) => (x * y),
-            (x,y) => (x / y)
-        };
-
-        static Func<BigFloat, BigFloat, BigFloat>[] bigFloatOps =
+        static Func<BigFloat, BigFloat, BigFloat>[] ALU_Ops =
         {
             (x,y) => (y + x),
             (x,y) => (y - x),

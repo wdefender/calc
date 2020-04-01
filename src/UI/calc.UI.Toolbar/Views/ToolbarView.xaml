@@ -14,35 +14,45 @@
         Orientation="Horizontal">
         <Button
             Width="30"
+            Command="{Binding ClearCommand}"
             ToolTip="Clear (alles löschen) ">
             C
         </Button>
         <Button
             Width="30"
+            IsEnabled="False"
             ToolTip=" Clear Entry (nur letzte Eingabe löschen)">
             CE
         </Button>
         <Button
             Width="30"
+            IsEnabled="False"
             ToolTip="Memory Clear (Speicher löschen)">
             MC
         </Button>
         <Button
             Width="30"
+            IsEnabled="False"
             ToolTip="Memory Recall (gespeicherten Wert abrufen) ">
             MR
         </Button>
         <Button
             Width="30"
+            IsEnabled="False"
             ToolTip="Memory Addition">
             M+
         </Button>
         <Button
             Width="30"
+            IsEnabled="False"
             ToolTip="Memory Subtraktion">
             M-
         </Button>
-        <Button Width="80">BACKSPACE</Button>
+        <Button
+            Width="80"
+            IsEnabled="False">
+            BACKSPACE
+        </Button>
     </StackPanel>
 </UserControl>
 <!--  C, CE, MC, MR, MS, M+, BACKSPACE  -->
