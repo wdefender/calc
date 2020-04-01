@@ -317,19 +317,19 @@ namespace calc.Common.Services
             }
 
 
-            string zeros = denominator.ToString();
-            string insertme = string.Empty;
-            while (zeros.EndsWith("0"))
+            string denominatorString = denominator.ToString();
+            string zeros = string.Empty;
+            while (denominatorString.EndsWith("0"))
             {
-                insertme = insertme + "0";
-                zeros = zeros.Remove(zeros.Length - 1, 1);
+                zeros = zeros + "0";
+                denominatorString = denominatorString.Remove(denominatorString.Length - 1, 1);
             }
-            insertme = insertme.Remove(insertme.Length - 1, 1);
+            zeros = zeros.Remove(zeros.Length - 1, 1);
 
             if (trailingZeros)
                 return result + "." + new string(sb.ToString().Reverse().ToArray());
             else
-                return result + "." + insertme + new string(sb.ToString().Reverse().ToArray()).TrimEnd(new char[] { '0' });
+                return result + "." + zeros + new string(sb.ToString().Reverse().ToArray()).TrimEnd(new char[] { '0' });
         }
 
         public string ToMixString()

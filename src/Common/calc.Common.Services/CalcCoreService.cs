@@ -7,9 +7,9 @@ namespace calc.Common.Services
 {
     public class CalcCoreService : ICalcCoreService
     {
-        private string x_register;
-        private string y_register;
-        private string flag_register;
+        private string x_register = string.Empty;
+        private string y_register = string.Empty;
+        private string flag_register = string.Empty;
 
         private readonly IOutputService outputService;
 
@@ -28,6 +28,7 @@ namespace calc.Common.Services
 
                     if (key.Value=="=")
                     {
+                        if (string.IsNullOrEmpty(x_register) || string.IsNullOrEmpty(y_register)) return;
                         x_register = Calculate();
                         y_register = string.Empty;
                         flag_register = "=";
@@ -74,16 +75,36 @@ namespace calc.Common.Services
                     }
                     break;
                 default:
-                    if (string.IsNullOrEmpty(flag_register))
+                    if(key.Value==",")
+                    {
+                        if (flag_register == "=") 
+                        {
+                            x_register = "0,";
+                            flag_register = string.Empty;
+                            outputService.SendOutput(x_register);
+                            return;
+                        }
+
+                        if (x_register.Contains(',')) return;
+
+                        x_register = string.IsNullOrEmpty(x_register) 
+                            ? "0," 
+                            : string.Concat(x_register, key.Value);
+
+                        outputService.SendOutput(x_register);
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(flag_register))
                     {
                         x_register = string.Concat(x_register, key.Value);
                         outputService.SendOutput(x_register);
+                        return;
                     }
                     else
                     {
                         if (flag_register == "=")
                         {
-                            y_register = x_register;
+                            x_register = key.Value;
                             flag_register = string.Empty;
                             outputService.SendOutput(x_register);
                         }
