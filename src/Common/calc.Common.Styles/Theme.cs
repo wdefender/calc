@@ -42,7 +42,7 @@ namespace calc.Common.Styles
             SetResource(ThemeResourceKey.WindowActiveBorder.ToString(), new SolidColorBrush(ColorFromHex("#FF833AB4")));
             SetResource(ThemeResourceKey.WindowControlMouseOverBackground.ToString(), new SolidColorBrush(ColorFromHex("#FF000000")));
             SetResource(ThemeResourceKey.WindowHeaderBackground.ToString(), GetWindowHeaderGradient());
-            SetResource(ThemeResourceKey.WindowHeaderForeground.ToString(), new SolidColorBrush(ColorFromHex("#FFFFFFFF")));
+            SetResource(ThemeResourceKey.WindowHeaderForeground.ToString(), new SolidColorBrush(ColorFromHex("#BBFFFFFF")));
 
             switch (type)
             {
