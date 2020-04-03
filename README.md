@@ -1,5 +1,5 @@
 # Calc
-Simple calculator windows application (WPF) that demonstrates how to use MVVM with .Net Core & Prism.
+Arbitrary numbers calculator windows application (WPF) that demonstrates how to use MVVM with .Net Core & Prism.
 
 ## Topics:
 
@@ -18,7 +18,7 @@ Feel free to clone or download the code. Zip-packed win64 exe is located inside 
 
 ## Next steps:
 
-- Enhancements (C, CE, MC, MR, MS, M+, BACKSPACE)
+- Enhancements (CE, MC, MR, MS, M+, BACKSPACE)
 - Unit tests
 - Logging
 - Error handling
