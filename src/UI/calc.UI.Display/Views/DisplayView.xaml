@@ -17,13 +17,15 @@
                 HorizontalAlignment="Left"
                 ItemsSource="{Binding Fonts}"
                 Visibility="Collapsed" />
-            <TextBlock
-                Margin="8"
+            <TextBox
+                Margin="4"
                 HorizontalAlignment="Right"
                 Background="{theme:ThemeResource ResourceKey=ControlBackground}"
+                BorderThickness="0"
                 FontFamily="{StaticResource DisplayFontFamily}"
                 FontSize="26"
                 Foreground="{theme:ThemeResource ResourceKey=ControlForeground}"
+                IsReadOnly="True"
                 Text="{Binding OutputService.DisplayValue}"
                 TextAlignment="Right" />
         </Grid>

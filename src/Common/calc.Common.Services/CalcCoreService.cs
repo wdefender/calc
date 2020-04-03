@@ -19,124 +19,128 @@ namespace calc.Common.Services
             outputService.SendOutput("0");
         }
 
-        public void AddInput(Key key)
-        {
-
+        public void ProcesInput(Key key)
+        { 
             switch (key.Type)
             {
-                case KeyType.OperatorKey:
-
-                    if (key.Value=="=")
-                    {
-                        if (string.IsNullOrEmpty(x_register) || string.IsNullOrEmpty(y_register)) return;
-                        x_register = Calculate();
-                        y_register = string.Empty;
-                        flag_register = "=";
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-
-                    if (key.Value== "+/-")
-                    {
-                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
-                        
-                        x_register = x_register[0].ToString() == "-".ToString() ? x_register.Remove(0, 1) : string.Concat("-", x_register);
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-
-                    if (key.Value == "sqrt")
-                    {
-                        if (string.IsNullOrEmpty(x_register)) return;
-                        x_register = BigFloat.Parse(x_register).Sqrt().ToString();
-                        flag_register = "=";
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-
-                    if (key.Value == "1/x")
-                    {
-                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
-                        x_register =  (new BigFloat(1) / BigFloat.Parse(x_register)).ToString();
-                        flag_register = "=";
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-
-                    if (key.Value == "%")
-                    {
-                        if (x_register == "0" || string.IsNullOrEmpty(x_register)) return;
-                        x_register = (BigFloat.Parse(x_register) / new BigFloat(100)).ToString();
-                        flag_register = "=";
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-
-                    flag_register = key.Value;
-                    outputService.SendOutput("");
-                    outputService.SendOutput(flag_register);
-
-                    break;
                 case KeyType.MemoryKey:
-                    if (key.Value=="C")
-                    {
-                        x_register = string.Empty;
-                        y_register = string.Empty;
-                        flag_register = string.Empty;
-                        outputService.SendOutput("0");
-                    }
+                    procesMemoryKey(key);
+                    break;
+                case KeyType.NumericKey:
+                    procesNumericKey(key);
+                    break;
+                case KeyType.OperatorKey:
+                    procesOperatorKey(key);
                     break;
                 default:
-                    if(key.Value==",")
-                    {
-                        if (flag_register == "=") 
-                        {
-                            x_register = "0,";
-                            flag_register = string.Empty;
-                            outputService.SendOutput(x_register);
-                            return;
-                        }
-
-                        if (x_register.Contains(',')) return;
-
-                        x_register = string.IsNullOrEmpty(x_register) 
-                            ? "0," 
-                            : string.Concat(x_register, key.Value);
-
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-                    else if (string.IsNullOrEmpty(flag_register))
-                    {
-                        x_register = string.Concat(x_register, key.Value);
-                        outputService.SendOutput(x_register);
-                        return;
-                    }
-                    else
-                    {
-                        if (flag_register == "=")
-                        {
-                            x_register = key.Value;
-                            flag_register = string.Empty;
-                            outputService.SendOutput(x_register);
-                        }
-                        else if (string.IsNullOrEmpty(y_register))
-                        {
-                            y_register = x_register;
-                            x_register = key.Value;
-                            outputService.SendOutput(x_register);
-                        }
-                        else
-                        {
-                            x_register = string.Concat(x_register, key.Value);
-                            outputService.SendOutput(x_register);
-                        }
-                    }
-                    break;
+                    throw new NotImplementedException();
             }
         }
 
-        private string Calculate()
+        private void procesOperatorKey(Key key)
+        {
+            if (key.Value == "+/-")
+            {
+                if (string.IsNullOrEmpty(x_register) || x_register == "0") return;
+                x_register = x_register[0].ToString() == "-".ToString() ? x_register.Remove(0, 1) : string.Concat("-", x_register);
+                outputService.SendOutput(x_register);
+                return;
+            }
+            else if (key.Value == "=")
+            {
+                if (string.IsNullOrEmpty(x_register) || string.IsNullOrEmpty(y_register)) return;
+                x_register = ComputeResult();
+                y_register = string.Empty;
+
+            }
+            else if (key.Value == "sqrt")
+            {
+                if (string.IsNullOrEmpty(x_register) || x_register == "0") return;
+                x_register = BigFloat.Parse(x_register).Sqrt().ToString();
+            }
+            else if (key.Value == "1/x")
+            {
+                if (string.IsNullOrEmpty(x_register) || x_register == "0") return;
+                x_register = (new BigFloat(1) / BigFloat.Parse(x_register)).ToString();
+            }
+            else if  (key.Value == "%")
+            {
+                if (string.IsNullOrEmpty(x_register) || x_register == "0") return;
+                x_register = (BigFloat.Parse(x_register) / new BigFloat(100)).ToString();
+            }
+            else
+            {
+                flag_register = key.Value;
+                y_register = x_register;
+                x_register = string.Empty;
+                outputService.SendOutput("");
+                outputService.SendOutput(flag_register);
+                return;
+            }
+
+            flag_register = "=";
+            outputService.SendOutput(x_register);
+        }
+
+        private void procesNumericKey(Key key)
+        {
+            if (key.Value == ",")
+            {
+                if (flag_register == "=")
+                {
+                    x_register = "0,";
+                    flag_register = string.Empty;
+                }
+                else if (x_register.Contains(','))
+                {
+                    return;
+                }
+                else
+                {
+                    x_register = string.IsNullOrEmpty(x_register)
+                                        ? "0,"
+                                        : string.Concat(x_register, key.Value);
+                }
+            }
+            else if (string.IsNullOrEmpty(flag_register))
+            {
+                x_register = string.Concat(x_register, key.Value);
+            }
+            else
+            {
+                if (flag_register == "=")
+                {
+                    x_register = key.Value;
+                    flag_register = string.Empty;
+                }
+                else
+                {
+                    x_register = string.Concat(x_register, key.Value);
+                }
+            }
+
+            outputService.SendOutput(x_register);
+        }
+
+        private void procesMemoryKey(Key key)
+        {
+            switch (key.Value)
+            {
+                case "C":
+                    x_register = string.Empty;
+                    y_register = string.Empty;
+                    flag_register = string.Empty;
+                    break;
+               
+                default:
+                    throw new NotImplementedException();
+            }
+
+            outputService.SendOutput("0");
+        }
+    
+
+        private string ComputeResult()
         {
             int index = Array.IndexOf(operators, flag_register);
             BigFloat _resultBF = ALU_Ops[index](BigFloat.Parse(x_register), BigFloat.Parse(y_register));

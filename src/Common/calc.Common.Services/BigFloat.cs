@@ -485,7 +485,7 @@ namespace calc.Common.Services
                 throw new ArgumentNullException("value");
 
             value.Trim();
-            value = value.Replace(",", "");
+            value = value.Replace(",", ".");
             int pos = value.IndexOf('.');
             value = value.Replace(".", "");
 

@@ -5,6 +5,6 @@ namespace calc.Common.Infrastructure.Interfaces
 {
     public interface ICalcCoreService
     {
-        void AddInput(Key key);
+        void ProcesInput(Key key);
     }
 }

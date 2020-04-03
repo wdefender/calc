@@ -15,7 +15,7 @@ namespace calc.Common.Services
 
         public void RegisterInput(Key key)
         {
-            calcCoreService.AddInput(key);
+            calcCoreService.ProcesInput(key);
         }
     }
 }
