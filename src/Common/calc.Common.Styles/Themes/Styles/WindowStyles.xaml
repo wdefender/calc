@@ -32,6 +32,8 @@
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
+                            FontFamily="Segoe UI"
+                            FontSize="14"
                             Foreground="{theme:ThemeResource ResourceKey=WindowHeaderForeground}"
                             Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" />
 

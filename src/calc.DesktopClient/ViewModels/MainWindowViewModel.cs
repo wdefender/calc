@@ -7,7 +7,7 @@ namespace calc.DesktopClient.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Calcualtor ";
+        private string _title = "Arbitrary numbers calculator";
         public string Title
         {
             get { return _title; }
